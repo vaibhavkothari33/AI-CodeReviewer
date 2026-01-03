@@ -25,3 +25,11 @@
         ]
     },
 ```
+
+
+```py
+uvicorn main:app --port 8001
+```
+```node
+npm run start
+```

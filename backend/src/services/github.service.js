@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ALLOWED_EXT = [".ts",".py",".jsx",".js"];
+const ALLOWED_EXT = [".ts",".py",".jsx",".js",".md"];
 const GITHUB_API = "https://api.github.com";
 
 export async function getRepoFiles(owner,repo,path=""){

@@ -1,33 +1,39 @@
-import { AstraDB } from "@datastax/astra-db-ts";
+import { DataAPIClient } from "@datastax/astra-db-ts";
 
-const astraDb = new AstraDB(
-    process.env.ASTRA_DB_TOKEN,
-    process.env.ASTRA_DB_ENDPOINT
-);
+let client;
+let db;
+let collection;
 
-const COLLECTION = "code_chunks";
-
-export async function storeVector(vectors) {
-    const collection = await astraDb.collection(COLLECTION);
-
-    for (const item in vectors) {
-        await collection.insert({
-            vector: item.vector,
-            path: item.metadata.path,
-            content: item.metadata.content,
-            repo: item.metadata.repo,
-        });
-    }
+function initializeDB() {
+  if (!collection) {
+    client = new DataAPIClient(process.env.ASTRA_DB_TOKEN);
+    db = client.db(process.env.ASTRA_DB_ENDPOINT);
+    collection = db.collection("code_chunks");
+  }
+  return collection;
 }
 
-export async function searchVector(queryVector, topK = 5) {
-    const collection = await astraDb.collection(COLLECTION);
+export async function storeVectors(vectors) {
+  const collection = initializeDB();
+  for (const item of vectors) {
+    await collection.insertOne({
+      $vector: item.vector,
+      path: item.metadata.path,
+      content: item.metadata.content,
+      repo: item.metadata.repo,
+    });
+  }
+}
 
-    const results = await collection.find(
-        {}, {
-        vector: queryVector,
-        limit: topK,
-        }
-    );
-    return results;
+export async function searchVectors(queryVector, topK = 5) {
+  const collection = initializeDB();
+  const cursor = collection.find(
+    {},
+    {
+      vector: queryVector,
+      limit: topK,
+    }
+  );
+
+  return await cursor.toArray();
 }

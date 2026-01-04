@@ -28,3 +28,11 @@ export async function embedQuery(query) {
     });
     return res.data.vectors[0];
 }
+
+export async function embedText(text){
+    const response = await axios.post("http://localhost:8081/embed",
+        {texts: [text]}
+    );
+
+    return response.data.vectors[0];
+}

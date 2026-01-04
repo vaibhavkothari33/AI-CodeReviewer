@@ -1,9 +1,18 @@
+const MAX_CHUNK_CONTENT_LENGTH = 2000; // Limit each chunk to ~500 tokens
+
 export function buildReviewPrompt(chunks, repoName, userQuery) {
+  // Limit chunk content to reduce token usage
   const codeContext = chunks
     .map(
-      (chunk, idx) =>
-`--- FILE ${idx + 1}: ${chunk.path} ---
-${chunk.content}`,
+      (chunk, idx) => {
+        let content = chunk.content || chunk.metadata?.content || '';
+        // Truncate if too long
+        if (content.length > MAX_CHUNK_CONTENT_LENGTH) {
+          content = content.substring(0, MAX_CHUNK_CONTENT_LENGTH) + '\n[... truncated ...]';
+        }
+        return `--- FILE ${idx + 1}: ${chunk.path || chunk.metadata?.path || 'unknown'} ---
+${content}`;
+      }
     )
     .join("\n\n");
 

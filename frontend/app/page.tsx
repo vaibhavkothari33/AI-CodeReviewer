@@ -244,10 +244,10 @@ export default function Home() {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-6xl font-black text-white mb-3 tracking-tight drop-shadow-2xl [text-shadow:_0_0_30px_rgba(255,255,255,0.5)]">
+          <h1 className="text-6xl font-sans font-black text-white mb-3 tracking-tight drop-shadow-2xl [text-shadow:_0_0_30px_rgba(255,255,255,0.5)]">
             AI Code Reviewer
           </h1>
-          <p className="text-lg text-white font-bold drop-shadow-xl [text-shadow:_0_0_20px_rgba(255,255,255,0.3)]">
+          <p className="text-lg text-white font-sans font-bold drop-shadow-xl [text-shadow:_0_0_20px_rgba(255,255,255,0.3)]">
             Powered by OpenRouter AI · Analyze your GitHub repositories with intelligent code review
           </p>
         </div>

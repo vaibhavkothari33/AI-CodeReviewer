@@ -176,7 +176,13 @@ export default function ColorBends({
       alpha: true
     });
     rendererRef.current = renderer;
-    (renderer as any).outputColorSpace = (THREE as any).SRGBColorSpace;
+    // Set output color space if available (Three.js r152+)
+    // Using type assertion for properties that may not be in type definitions
+    const rendererWithColorSpace = renderer as THREE.WebGLRenderer & { outputColorSpace?: string };
+    const threeWithColorSpace = THREE as typeof THREE & { SRGBColorSpace?: string };
+    if (rendererWithColorSpace.outputColorSpace !== undefined && threeWithColorSpace.SRGBColorSpace !== undefined) {
+      rendererWithColorSpace.outputColorSpace = threeWithColorSpace.SRGBColorSpace;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setClearColor(0x000000, transparent ? 0 : 1);
     renderer.domElement.style.width = '100%';

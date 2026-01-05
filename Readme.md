@@ -7,9 +7,21 @@
 ![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)
 ![Python](https://img.shields.io/badge/python-%3E%3D3.8-blue.svg)
 
+**Tech Stack**
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38bdf8?logo=tailwind-css)
+![Node.js](https://img.shields.io/badge/Node.js-18+-green?logo=node.js)
+![Express](https://img.shields.io/badge/Express-4-gray?logo=express)
+![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green?logo=fastapi)
+![Astra DB](https://img.shields.io/badge/Astra_DB-Vector_DB-purple?logo=datastax)
+![OpenRouter](https://img.shields.io/badge/OpenRouter-AI_Gateway-orange)
+
 **An intelligent AI-powered code review system that analyzes GitHub repositories using vector embeddings and AI models**
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Setup](#️-setup) • [Usage](#-usage) • [API](#-api-endpoints)
 
 </div>
 
@@ -54,42 +66,6 @@ The system provides structured reviews with severity levels (HIGH, MEDIUM, LOW) 
 - ✅ **Memory Optimized**: Processes large repositories efficiently with batch processing and incremental loading
 - ✅ **Error Handling**: Comprehensive error handling and validation throughout the entire pipeline
 - ✅ **Scalable Architecture**: Microservices-based design with separate embedding service for better performance
-
-## 🛠️ Tech Stack
-
-### Frontend
-- ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js) - React framework for production
-- ![React](https://img.shields.io/badge/React-18-blue?logo=react) - UI library
-- ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript) - Type-safe JavaScript
-- ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38bdf8?logo=tailwind-css) - Utility-first CSS framework
-- ![Three.js](https://img.shields.io/badge/Three.js-r152-black?logo=three.js) - 3D graphics for animated background
-
-### Backend
-- ![Node.js](https://img.shields.io/badge/Node.js-18+-green?logo=node.js) - JavaScript runtime
-- ![Express](https://img.shields.io/badge/Express-4-gray?logo=express) - Web framework
-- ![Axios](https://img.shields.io/badge/Axios-1-blue) - HTTP client
-
-### Embedding Service
-- ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python) - Programming language
-- ![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green?logo=fastapi) - Modern Python web framework
-- ![SentenceTransformers](https://img.shields.io/badge/SentenceTransformers-2.2-red) - Pre-trained embedding models
-- ![Uvicorn](https://img.shields.io/badge/Uvicorn-ASGI-green) - ASGI server
-
-### Vector Database
-- ![Astra DB](https://img.shields.io/badge/Astra_DB-Vector_DB-purple?logo=datastax) - DataStax Astra DB for vector storage and similarity search
-
-### AI Services
-- ![OpenRouter](https://img.shields.io/badge/OpenRouter-AI_Gateway-orange) - Unified API for multiple AI models
-- ![Gemini](https://img.shields.io/badge/Google_Gemini-AI-blue?logo=google) - Google's AI model (via OpenRouter)
-- ![Llama](https://img.shields.io/badge/Meta_Llama-3.2-orange?logo=meta) - Meta's Llama model (via OpenRouter)
-- ![Claude](https://img.shields.io/badge/Anthropic_Claude-3-red) - Anthropic's Claude model (via OpenRouter)
-
-### APIs & Services
-- ![GitHub API](https://img.shields.io/badge/GitHub_API-v3-gray?logo=github) - Repository file fetching and metadata
-
-### Development Tools
-- ![ESLint](https://img.shields.io/badge/ESLint-Code_Quality-purple?logo=eslint) - Code linting
-- ![Prettier](https://img.shields.io/badge/Prettier-Code_Formatter-pink?logo=prettier) - Code formatting
 
 ## 📋 Prerequisites
 

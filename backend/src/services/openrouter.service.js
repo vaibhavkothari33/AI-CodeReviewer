@@ -1,22 +1,6 @@
 import axios from "axios";
 
-// Get and clean the API key (remove quotes if present)
-// let apiKey = process.env.OPENROUTER_API_KEY;
-let apiKey = "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";
-if (apiKey) {
-  // Remove surrounding quotes if present
-  apiKey = apiKey.trim().replace(/^["']|["']$/g, '');
-}
-
-if (!apiKey || apiKey === "") {
-  console.error("OPENROUTER_API_KEY is missing or empty");
-  console.error("Current value:", process.env.OPENROUTER_API_KEY);
-  throw new Error("OPENROUTER_API_KEY environment variable is required. Please set it in your .env file. Get your API key from: https://openrouter.ai/keys");
-}
-
-// Log first and last few characters for debugging (don't log full key for security)
-console.log(`OpenRouter API key loaded: ${apiKey.substring(0, 10)}...${apiKey.substring(apiKey.length - 4)}`);
-
+let apiKey = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
 // Default model - using free tier models

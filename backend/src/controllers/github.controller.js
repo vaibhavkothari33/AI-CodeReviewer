@@ -158,7 +158,7 @@ export async function searchRepo(req, res) {
 
 import { embedText } from "../services/embedding.service.js";
 import { buildReviewPrompt } from "../services/prompt.service.js";
-import { reviewWithGemini } from "../services/gemini.service.js";
+import { reviewWithGemini } from "../services/openrouter.service.js";
 
 export async function reviewRepo(req, res) {
   try {

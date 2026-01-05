@@ -1,20 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Get and clean the API key (remove quotes if present)
-let apiKey = "AIzaSyBgY-Tcyd9NmaeDYNCN6DH6AGdBZNLdDvg";
-if (apiKey) {
-  // Remove surrounding quotes if present
-  apiKey = apiKey.trim().replace(/^["']|["']$/g, '');
-}
-
-if (!apiKey || apiKey === "") {
-  console.error("GEMINI_API_KEY is missing or empty");
-  console.error("Current value:", process.env.GEMINI_API_KEY);
-  throw new Error("GEMINI_API_KEY environment variable is required. Please set it in your .env file without quotes.");
-}
-
-// Log first and last few characters for debugging (don't log full key for security)
-console.log(`Gemini API key loaded: ${apiKey.substring(0, 10)}...${apiKey.substring(apiKey.length - 4)}`);
+let apiKey = process.env.GEMINI_API_KEY;
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
